@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111318" />
+  <meta name="description" content="웨이트 · 러닝 운동기록 앱 - 달력, 루틴, 휴식 타이머, GPS 러닝, 통계" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="핏로그" />
+  <title>핏로그</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 id="view-title">기록</h1>
+    <div id="topbar-actions"></div>
+  </header>
+
+  <main id="view"></main>
+
+  <!-- 휴식 타이머 (세트 완료 시 자동 시작) -->
+  <div id="rest-timer" class="rest-timer hidden" role="status" aria-live="polite">
+    <span class="rest-label">휴식</span>
+    <strong id="rest-time">0:00</strong>
+    <button type="button" data-rest="-15">-15</button>
+    <button type="button" data-rest="+15">+15</button>
+    <button type="button" data-rest="skip">건너뛰기</button>
+  </div>
+
+  <nav class="tabbar">
+    <button type="button" data-tab="calendar" class="active"><span class="ico">📅</span>기록</button>
+    <button type="button" data-tab="routines"><span class="ico">📋</span>루틴</button>
+    <button type="button" data-tab="stats"><span class="ico">📈</span>통계</button>
+    <button type="button" data-tab="settings"><span class="ico">⚙️</span>설정</button>
+  </nav>
+
+  <!-- 바텀시트/전체화면 편집기가 이 안에 쌓입니다 -->
+  <div id="sheets"></div>
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
